@@ -4,10 +4,10 @@ import mentorRoutes from './mentor.js'
 import studentRoutes from './student.js'
 import assignRoutes from './assign.js'
 const router=express.Router()
-router.get('/', function(req, res){
-    indexcontroller.homePage
-//router.get('/',indexcontroller.homePageStudent
-  })
+// router.get('/', function(req, res){
+//     indexcontroller.homePage })
+router.get('/',indexcontroller.homePage)
+
 router.use('/mentor',mentorRoutes)
 router.use('/student',studentRoutes)
 router.use('/assign',assignRoutes)
