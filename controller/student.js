@@ -1,7 +1,7 @@
 import studentModel from "../modules/student.js";
 import dotenv from 'dotenv'
 dotenv.config()
-const allStudent =async (res,req)=>{
+const allStudent =async (req,res)=>{
     try {
         const student =await studentModel.find();
         res.status(200).send({
@@ -16,7 +16,7 @@ const allStudent =async (res,req)=>{
         
     }
 }
-const addStudent =async (res,req)=>{
+const addStudent =async (req,res)=>{
     try {
         const user =await studentModel.findOne({email:req.body.email});
         if(!user) {
@@ -38,7 +38,7 @@ const addStudent =async (res,req)=>{
         
     }
 }
-const deleteStudent =async (res,req)=>{
+const deleteStudent =async (req,res)=>{
     try {
         const user =await studentModel.findOne({_id:req.params.id});
         if(user) {
@@ -60,7 +60,7 @@ const deleteStudent =async (res,req)=>{
         
     }
 }
-const editStudent =async (res,req)=>{
+const editStudent =async (req,res)=>{
     try {
         const user =await studentModel.findOne({_id:req.params.id});
         if(user) {
@@ -79,7 +79,7 @@ const editStudent =async (res,req)=>{
              });
      }
 }
-const getoneStudent =async (res,req)=>{
+const getoneStudent =async (req,res)=>{
     try {
         const user =await studentModel.findOne({_id:req.params.id});
         if(user) {

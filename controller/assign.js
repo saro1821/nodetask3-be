@@ -1,6 +1,6 @@
 import studentModel from "../modules/student.js";
 import mentorModel from "../modules/mentor.js";
-const assignMultiStudent= async(res,req)=>{
+const assignMultiStudent= async(req,res)=>{
     try {
        const mentor =await mentorModel.findOne({_id :req.params.id}); 
        const student =await studentModel.findOne({batch :req.params.batch}); 

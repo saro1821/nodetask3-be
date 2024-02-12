@@ -2,7 +2,7 @@ import mentorModel from "../modules/mentor.js";
 import studentModel from "../modules/student.js";
 import dotenv from "dotenv"
 dotenv.config()
-const allMentor =async (res,req)=>{
+const allMentor =async (req,res)=>{
     try {
         const mentor =await mentorModel.find();
         res.status(200).send({
@@ -17,7 +17,7 @@ const allMentor =async (res,req)=>{
         
     }
 }
-const addMentor =async (res,req)=>{
+const addMentor =async (req,res)=>{
     try {
         const user =await mentorModel.findOne({email:req.body.email});
         if(!user) {
@@ -39,7 +39,7 @@ const addMentor =async (res,req)=>{
         
     }
 }
-const deleteMentor =async (res,req)=>{
+const deleteMentor =async (req,res)=>{
     try {
         const user =await mentorModel.findOne({_id:req.params.id});
         if(user) {
@@ -61,7 +61,7 @@ const deleteMentor =async (res,req)=>{
         
     }
 }
-const editMentor =async (res,req)=>{
+const editMentor =async (req,res)=>{
     try {
         const user =await mentorModel.findOne({_id:req.params.id});
         if(user) {
@@ -83,7 +83,7 @@ const editMentor =async (res,req)=>{
         
     }
 }
-const getoneMentor =async (res,req)=>{
+const getoneMentor =async (req,res)=>{
     try {
         const user =await mentorModel.findOne({_id:req.params.id});
         if(user) {
@@ -106,7 +106,7 @@ const getoneMentor =async (res,req)=>{
         
     }
 }
-const mentorstudentlist =async (res,req)=>{
+const mentorstudentlist =async (req,res)=>{
     try {
         const mentor =await mentorModel.findOne(
             {_id:req.params.id},
